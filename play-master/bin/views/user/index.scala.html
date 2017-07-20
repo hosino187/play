@@ -1,0 +1,162 @@
+@(userSearchForm:controllers.forms.UserSearchForm, users: List[models.User])
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Home</title>
+        @common.head()
+        </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+                <!-- Header -->
+            @common.header()
+                <!-- Left Side bar -->
+            @common.leftSideBar("user")
+                <!-- Right Side bar -->
+            @common.rightSideBar()
+
+                <!-- Content Wrapper -->
+            <div class="content-wrapper">
+                    <!-- Page header -->
+                <section class="content-header">
+                    <h1>User<small>member list</small></h1>
+                        <!-- Buttons -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button id="add" type="submit" class="btn btn-primary pull-right">Add User!</button>
+                        </div>
+                    </div>
+                </section>
+                    <!-- Page content -->
+                <section class="content">
+
+
+                    <form action="/user" method="get" class="form-horizontal">
+
+                            <!-- Search Condition -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="box box-solid">
+                                    <div class="box-header">
+                                        <i class="fa fa-search "></i>
+                                        <h3 class="box-title">Search</h3>
+                                        <div class="box-tools pull-right">
+                                            <button type="button" class="btn btn-box-tool btn-sm white-collapse"
+                                            data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="box-body border-radius-none" style="display: block;">
+                                            <!-- ID -->
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">
+                                                        <input name="id" type="number" class="form-control rounded" placeholder="ID" value="@if(userSearchForm.id != null) {@userSearchForm.id}"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <!-- FirstName -->
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">
+                                                        <input name="firstName" type="text" class="form-control rounded" placeholder="FirstName" value="@if(userSearchForm.firstName != null) {@userSearchForm.firstName}"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <!-- LastName -->
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">
+                                                        <input name="lastName" type="text" class="form-control rounded" placeholder="LastName"  value="@if(userSearchForm.lastName != null) {@userSearchForm.lastName}"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        	<!-- LastName -->
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">
+                                                        <input name="middleName" type="text" class="form-control rounded" placeholder="middleName"	value="@if(userSearchForm.middleName != null) {@userSearchForm.middleName}"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <!-- Buttons -->
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <button type="submit" class="btn btn-primary pull-right">search!</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </form>
+
+
+                        <!-- Member list -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="box box-solid">
+                                <div class="box-body border-radius-none" style="display: block;">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>First Name</th>
+                                                        <th>Last Name</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+
+                                                @for(user <- users) {
+                                                    <tr>
+                                                        <th scope="row">
+                                                            <a href="/user/@user.id"><span>@user.id</span></a>
+                                                        </th>
+                                                        <td><span>@user.firstName</span></td>
+                                                        <td><span>@user.lastName</span></td>
+                                                    </tr>
+                                                }
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </section>
+            </div>
+
+                <!-- Footer -->
+            @common.footer()
+        </div>
+
+            <!-- Include scripts -->
+        @common.script()
+        <script type="text/javascript">
+                // Events
+                $('#add').click(function () {
+                    location.href = '/user/create';
+                });
+        </script>
+
+    </body>
+</html>
+

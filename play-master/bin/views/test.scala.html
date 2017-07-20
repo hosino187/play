@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>test</title>
+        @common.head()
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+                <!-- Header -->
+            @common.header()
+                <!-- Left Side bar -->
+            @common.leftSideBar("home")
+                <!-- Right Side bar -->
+            @common.rightSideBar()
+
+
+                <!-- Content Wrapper -->
+            <div class="content-wrapper">
+                    <!-- Page header -->
+                <section class="content-header"><h1>Template<small>play Framework 2.6 practice!!</small></h1></section>
+                    <!-- Page content -->
+                <section class="content">
+                </section>
+                テスト
+            </div>
+
+                <!-- Footer -->
+            @common.footer()
+        </div>
+
+        <!-- Include scripts -->
+        @common.script()
+
+    </body>
+</html>

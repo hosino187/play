@@ -1,0 +1,21 @@
+/*
+ * Original: CSS
+ * ----------
+ */
+.skin-blue .main-header .logo {
+    background-color: #222d32;
+}
+.skin-blue .main-header .logo:hover {
+    background-color: #222d32;
+}
+.content-wrapper, .right-side {
+    background-color: #ecf0f5;
+}
+
+.rounded {
+    border-radius: 25px;
+}
+
+.white-collapse {
+    background: white!important;
+}

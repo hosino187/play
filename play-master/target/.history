@@ -1,0 +1,18 @@
+ eclipse with-source=true with-javadoc=true
+run
+clean
+update
+compile
+clean
+update
+compile
+run
+h2-browse
+h2-brows
+h2-brows:
+sbt\bin\sbt.bat
+h2-brows
+run
+h2-browse
+h2-browser
+run
